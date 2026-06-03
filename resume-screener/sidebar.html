@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>简历筛选助手</title>
+  <link rel="stylesheet" href="sidebar.css" />
+</head>
+<body>
+  <div id="app">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <span class="header-icon">▶</span>
+        <span class="header-title">简历筛选助手</span>
+      </div>
+      <button id="settings-toggle" class="icon-btn" title="API 设置">⚙</button>
+    </header>
+
+    <!-- API Key Settings (collapsible) -->
+    <div id="settings-panel" class="settings-panel collapsed">
+      <div class="settings-inner">
+        <label class="field-label">DeepSeek API Key</label>
+        <input
+          id="api-key-input"
+          type="password"
+          class="text-input"
+          placeholder="sk-xxxxxxxxxxxxxxxx"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <div class="field-hint">存储在本地，不上传</div>
+      </div>
+    </div>
+
+    <!-- JD Input -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-label">粘贴完整 JD</span>
+        <span class="section-hint">AI 自动提炼核心要求</span>
+      </div>
+      <textarea
+        id="jd-input"
+        class="jd-textarea"
+        placeholder="将完整的职位描述（Job Description）粘贴到这里，AI 会自动识别 3-5 条最核心的硬性要求并逐条评估候选人简历。"
+        spellcheck="false"
+      ></textarea>
+      <div class="btn-row">
+        <button id="save-btn" class="btn btn-secondary">
+          <span>💾</span> 保存 JD
+        </button>
+        <button id="clear-btn" class="btn btn-ghost">清空</button>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Start Button -->
+    <button id="start-btn" class="btn btn-primary btn-full">
+      <span class="btn-icon">⚡</span> 开始筛选
+    </button>
+
+    <!-- Status Bar -->
+    <div id="status-bar" class="status-bar hidden"></div>
+
+    <!-- Results -->
+    <div id="candidates-container" class="candidates-container"></div>
+
+  </div>
+
+  <script src="sidebar.js"></script>
+</body>
+</html>

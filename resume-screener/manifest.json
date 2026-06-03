@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "猎头简历筛选助手",
+  "version": "1.0.0",
+  "description": "基于JD硬性要求，智能筛选任意网页的候选人简历",
+  "permissions": [
+    "storage",
+    "sidePanel",
+    "activeTab",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "side_panel": {
+    "default_path": "sidebar.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "简历筛选助手"
+  }
+}
